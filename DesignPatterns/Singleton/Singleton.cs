@@ -66,6 +66,19 @@ namespace DesignPatterns.Singleton
             {
                 Console.WriteLine("Singleton failed, variables contain different instances.");
             }
+
+            var c = NotSingleton.GetInstanceUnSafe;
+
+            var d = NotSingleton.GetInstanceUnSafe;
+
+            if (c == d)
+            {
+                Console.WriteLine("Singleton works, both variables contain the same instance.");
+            }
+            else
+            {
+                Console.WriteLine("Singleton failed, variables contain different instances.");
+            }
         }
     }
        
