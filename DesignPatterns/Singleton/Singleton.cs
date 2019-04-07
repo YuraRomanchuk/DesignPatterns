@@ -15,11 +15,15 @@ namespace DesignPatterns.Singleton
     {
         public static Singleton instance;
 
+        private static readonly Lazy<Singleton> lazy = new Lazy<Singleton>(() => new Singleton());
+
+        public static Singleton GetInstanceSafeLazy => lazy.Value;
+
         public static Singleton GetInstanceUnSafe
         {
             get
             {
-                if(instance == null)
+                if (instance == null)
                 {
                     instance = new Singleton();
                 }
@@ -56,7 +60,7 @@ namespace DesignPatterns.Singleton
         {
             var a = Singleton.GetInstanceUnSafe;
 
-            var b = Singleton.GetInstanceThreadSafe;
+            var b = Singleton.GetInstanceUnSafe;
 
             if (a == b)
             {
