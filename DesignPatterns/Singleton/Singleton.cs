@@ -11,7 +11,7 @@ namespace DesignPatterns.Singleton
     /// Flexibility– since the class controls the instantiation process, the class has the flexibility to change the instantiation process.
     /// Lazy initialization– defers the object’s creation until it is first used.
     /// </summary>
-    class Singleton
+    public class Singleton
     {
         public static Singleton instance;
 
@@ -52,38 +52,5 @@ namespace DesignPatterns.Singleton
             }
 
         }
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var a = Singleton.GetInstanceUnSafe;
-
-            var b = Singleton.GetInstanceUnSafe;
-
-            if (a == b)
-            {
-                Console.WriteLine("Singleton works, both variables contain the same instance.");
-            }
-            else
-            {
-                Console.WriteLine("Singleton failed, variables contain different instances.");
-            }
-
-            var c = NotSingleton.GetInstanceUnSafe;
-
-            var d = NotSingleton.GetInstanceUnSafe;
-
-            if (c == d)
-            {
-                Console.WriteLine("Singleton works, both variables contain the same instance.");
-            }
-            else
-            {
-                Console.WriteLine("Singleton failed, variables contain different instances.");
-            }
-        }
-    }
-       
+    }   
 }
