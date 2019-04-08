@@ -1,4 +1,5 @@
-﻿using DesignPatterns.Singleton;
+﻿using DesignPatterns.Factory;
+using DesignPatterns.Singleton;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +12,18 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            //var a = Singleton.GetInstanceUnSafe;
+            var a = DesignPatterns.Singleton.Singleton.GetInstanceUnSafe;
 
-            //var b = Singleton.GetInstanceUnSafe;
+            var b = DesignPatterns.Singleton.Singleton.GetInstanceUnSafe;
 
-            //if (a == b)
-            //{
-            //    Console.WriteLine("Singleton works, both variables contain the same instance.");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Singleton failed, variables contain different instances.");
-            //}
+            if (a == b)
+            {
+                Console.WriteLine("Singleton works, both variables contain the same instance.");
+            }
+            else
+            {
+                Console.WriteLine("Singleton failed, variables contain different instances.");
+            }
 
             var c = NotSingleton.GetInstanceUnSafe;
 
@@ -49,6 +50,8 @@ namespace DesignPatterns
             ConcreteDecoratorC decorator3 = new ConcreteDecoratorC(decorator2);
             Console.WriteLine("Client: Now I've got a decorated component:");
             client.ClientCode(decorator3);
+
+            new DesignPatterns.Factory.Client().Main();
         }
     }
 }
